@@ -1,17 +1,25 @@
 ﻿using CoreAPI.Core.Models;
 using CoreAPI.Core.Interfaces;
+using Lab2.CoreAPI.Core.Interfaces;
 
 using System.Text;
 
-namespace Core;
+namespace Lab2.CoreAPI.Core.Interfaces;
 
-public class AssemblyWorkshop : Workshop, IIdentifiable
+public class AssemblyWorkshop : Workshop, IDisplayable, IDrawable
 {
     public const uint MIN_LINES_NUMBER = 1;
     public const uint MAX_LINES_NUMBER = 10_000;
-
     public uint AssemblyLines { get; set; }
     public bool UsesAutomation { get; set; }
+    public int X { get; set; }
+    public int Y { get; set; }
+    public static readonly string ImagePath;
+
+    static AssemblyWorkshop()
+    {
+        ImagePath = "../../WorkshopsImages/assembly_workshop_image.jpg";
+    }
 
     public AssemblyWorkshop(string name, 
                             string manager, 

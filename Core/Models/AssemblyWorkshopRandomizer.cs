@@ -1,7 +1,7 @@
 using CoreAPI.Core.Models;
 using CoreAPI.Core.Helpers;
 
-namespace Core;
+namespace Lab2.CoreAPI.Core.Interfaces;
 
 public static class AssemblyWorkshopRandomizer
 {

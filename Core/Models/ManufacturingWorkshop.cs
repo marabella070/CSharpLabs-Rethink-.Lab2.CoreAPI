@@ -3,15 +3,23 @@ using CoreAPI.Core.Interfaces;
 
 using System.Text;
 
-namespace Core;
+namespace Lab2.CoreAPI.Core.Interfaces;
 
-public class ManufacturingWorkshop : Workshop, IIdentifiable
+public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable
+
 {
     public const uint MIN_MACHINES_NUMBER = 1;
     public const uint MAX_MACHINES_NUMBER = 10_000;
-
     public uint MachinesCount { get; set; }
     public bool HasHazardousMaterials { get; set; }
+    public int X { get; set; }
+    public int Y { get; set; }
+    public static readonly string ImagePath;
+
+    static ManufacturingWorkshop()
+    {
+        ImagePath = "../../WorkshopsImages/manufacturing_workshop_1.jpg";
+    }
 
     public ManufacturingWorkshop(string name, 
                                  string manager, 

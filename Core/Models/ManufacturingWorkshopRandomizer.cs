@@ -1,14 +1,7 @@
 using CoreAPI.Core.Models;
 using CoreAPI.Core.Helpers;
 
-namespace Core;
-
-
-/*
-MachinesCount
-HasHazardousMaterials
-*/
-
+namespace Lab2.CoreAPI.Core.Interfaces;
 
 public static class ManufacturingWorkshopRandomizer
 {
