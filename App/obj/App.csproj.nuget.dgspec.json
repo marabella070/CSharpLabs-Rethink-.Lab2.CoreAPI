@@ -20,7 +20,7 @@
           "net9.0"
         ],
         "sources": {
-          "/home/NuGetPackages/": {},
+          "/home/marabella/Programming/Labs/CSharpLabs/NuGetPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -84,7 +84,7 @@
           "net9.0"
         ],
         "sources": {
-          "/home/NuGetPackages/": {},
+          "/home/marabella/Programming/Labs/CSharpLabs/NuGetPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -112,6 +112,10 @@
             "CoreAPI.Core": {
               "target": "Package",
               "version": "[1.0.2, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[9.0.3, )"
             }
           },
           "imports": [

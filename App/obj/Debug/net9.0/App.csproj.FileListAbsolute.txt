@@ -18,3 +18,7 @@
 /home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/App/bin/Debug/net9.0/Core.pdb
 /home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/App/obj/Debug/net9.0/App.csproj.AssemblyReference.cache
 /home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/App/obj/Debug/net9.0/App.csproj.Up2Date
+/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/App/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
+/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/App/bin/Debug/net9.0/System.Drawing.Common.dll
+/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/App/bin/Debug/net9.0/System.Private.Windows.Core.dll
+/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/App/bin/Debug/net9.0/runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll

@@ -3,6 +3,8 @@ using CoreAPI.Core.Interfaces;
 using Lab2.CoreAPI.Core.Interfaces;
 
 using System.Text;
+using System.Drawing;
+using System.Runtime.Versioning;
 
 namespace Lab2.CoreAPI.Core.Interfaces;
 
@@ -10,15 +12,20 @@ public class AssemblyWorkshop : Workshop, IDisplayable, IDrawable
 {
     public const uint MIN_LINES_NUMBER = 1;
     public const uint MAX_LINES_NUMBER = 10_000;
+    public static readonly string ImagePath;
+    private static readonly Image _image;
     public uint AssemblyLines { get; set; }
     public bool UsesAutomation { get; set; }
     public int X { get; set; }
     public int Y { get; set; }
-    public static readonly string ImagePath;
+    public int ImageWidth { get; set; } = 30;
+    public int ImageHeight { get; set; } = 30;
 
+    [SupportedOSPlatform("windows")]
     static AssemblyWorkshop()
     {
         ImagePath = "../../WorkshopsImages/assembly_workshop_image.jpg";
+        _image = Image.FromFile(ImagePath);
     }
 
     public AssemblyWorkshop(string name, 
@@ -42,6 +49,13 @@ public class AssemblyWorkshop : Workshop, IDisplayable, IDrawable
     {
         AssemblyLines = assemblyLines;
         UsesAutomation = usesAutomation;
+    }
+
+    [SupportedOSPlatform("windows")]
+    public void Draw(Graphics g)
+    {
+        // drawing the object at the current coordinates
+        g.DrawImage(_image, X, Y, ImageWidth, ImageHeight);
     }
 
     public string GetAssemblyWorkshopInfo()

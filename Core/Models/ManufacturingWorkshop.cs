@@ -2,23 +2,29 @@ using CoreAPI.Core.Models;
 using CoreAPI.Core.Interfaces;
 
 using System.Text;
+using System.Drawing;
+using System.Runtime.Versioning;
 
 namespace Lab2.CoreAPI.Core.Interfaces;
 
 public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable
-
 {
     public const uint MIN_MACHINES_NUMBER = 1;
     public const uint MAX_MACHINES_NUMBER = 10_000;
+    public static readonly string ImagePath;
+    private static readonly Image _image;
     public uint MachinesCount { get; set; }
     public bool HasHazardousMaterials { get; set; }
     public int X { get; set; }
     public int Y { get; set; }
-    public static readonly string ImagePath;
+    public int ImageWidth { get; set; } = 30;
+    public int ImageHeight { get; set; } = 30;
 
+    [SupportedOSPlatform("windows")]
     static ManufacturingWorkshop()
     {
         ImagePath = "../../WorkshopsImages/manufacturing_workshop_1.jpg";
+        _image = Image.FromFile(ImagePath);
     }
 
     public ManufacturingWorkshop(string name, 
@@ -42,6 +48,13 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable
     {
         MachinesCount = machinesCount;
         HasHazardousMaterials = hasHazardousMaterials;
+    }
+
+    [SupportedOSPlatform("windows")]
+    public void Draw(Graphics g)
+    {
+        // drawing the object at the current coordinates
+        g.DrawImage(_image, X, Y, ImageWidth, ImageHeight);
     }
 
     public string GetAssemblyWorkshopInfo()
