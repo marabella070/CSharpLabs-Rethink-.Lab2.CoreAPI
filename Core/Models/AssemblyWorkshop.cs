@@ -6,7 +6,7 @@ using System.Text;
 using System.Drawing;
 using System.Runtime.Versioning;
 
-namespace Lab2.CoreAPI.Core.Interfaces;
+namespace Lab2.CoreAPI.Core.Models;
 
 public class AssemblyWorkshop : Workshop, IDisplayable, IDrawable
 {

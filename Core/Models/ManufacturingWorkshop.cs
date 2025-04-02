@@ -1,11 +1,12 @@
 using CoreAPI.Core.Models;
 using CoreAPI.Core.Interfaces;
+using Lab2.CoreAPI.Core.Interfaces;
 
 using System.Text;
 using System.Drawing;
 using System.Runtime.Versioning;
 
-namespace Lab2.CoreAPI.Core.Interfaces;
+namespace Lab2.CoreAPI.Core.Models;
 
 public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable
 {
@@ -15,8 +16,8 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable
     private static readonly Image _image;
     public uint MachinesCount { get; set; }
     public bool HasHazardousMaterials { get; set; }
-    public int X { get; set; }
-    public int Y { get; set; }
+    public int X { get; set; } = 0;
+    public int Y { get; set; } = 0;
     public int ImageWidth { get; set; } = 30;
     public int ImageHeight { get; set; } = 30;
 

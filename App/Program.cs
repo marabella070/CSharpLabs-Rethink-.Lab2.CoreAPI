@@ -1,4 +1,4 @@
-﻿using Lab2.CoreAPI.Core.Interfaces;
+﻿using Lab2.CoreAPI.Core.Models;
 
 
 
