@@ -24,7 +24,7 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable
     [SupportedOSPlatform("windows")]
     static ManufacturingWorkshop()
     {
-        ImagePath = "../../WorkshopsImages/manufacturing_workshop_1.jpg";
+        ImagePath = "../WorkshopsImages/manufacturing_workshop_1.jpg";
         _image = Image.FromFile(ImagePath);
     }
 

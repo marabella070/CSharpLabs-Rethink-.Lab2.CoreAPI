@@ -20,7 +20,6 @@
           "net9.0"
         ],
         "sources": {
-          "/home/marabella/Programming/Labs/CSharpLabs/NuGetPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

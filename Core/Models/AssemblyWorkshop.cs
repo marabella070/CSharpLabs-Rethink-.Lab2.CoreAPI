@@ -24,7 +24,7 @@ public class AssemblyWorkshop : Workshop, IDisplayable, IDrawable
     [SupportedOSPlatform("windows")]
     static AssemblyWorkshop()
     {
-        ImagePath = "../../WorkshopsImages/assembly_workshop_image.jpg";
+        ImagePath = "../WorkshopsImages/assembly_workshop_image.jpg";
         _image = Image.FromFile(ImagePath);
     }
 
