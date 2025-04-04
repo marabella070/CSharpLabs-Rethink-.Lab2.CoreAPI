@@ -5,10 +5,10 @@
   },
   "projects": {
     "/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/Core/Core.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/Core/Core.csproj",
-        "projectName": "Core",
+        "projectName": "Lab2.CoreAPI.Core",
         "projectPath": "/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/Core/Core.csproj",
         "packagesPath": "/home/marabella/.nuget/packages/",
         "outputPath": "/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/Core/obj/",
@@ -44,9 +44,9 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "CoreAPI.Core": {
+            "Lab1.CoreAPI.Core": {
               "target": "Package",
-              "version": "[1.0.2, )"
+              "version": "[1.0.3, )"
             },
             "System.Drawing.Common": {
               "target": "Package",

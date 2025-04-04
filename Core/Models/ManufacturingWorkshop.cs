@@ -1,6 +1,8 @@
 using CoreAPI.Core.Models;
 using CoreAPI.Core.Interfaces;
+
 using Lab2.CoreAPI.Core.Interfaces;
+using Lab2.CoreAPI.Core.Helpers; 
 
 using System.Text;
 using System.Drawing;
@@ -12,7 +14,6 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable
 {
     public const uint MIN_MACHINES_NUMBER = 1;
     public const uint MAX_MACHINES_NUMBER = 10_000;
-    public static readonly string ImagePath;
     private static readonly Image _image;
     public uint MachinesCount { get; set; }
     public bool HasHazardousMaterials { get; set; }
@@ -20,12 +21,15 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable
     public int Y { get; set; } = 0;
     public int ImageWidth { get; set; } = 30;
     public int ImageHeight { get; set; } = 30;
+    private static readonly string ImageResourcePath = "Core.WorkshopsImages.manufacturing_workshop_1.jpg";
+    private static readonly string ImageLoadErrorMessage = "Failed to load assembly workshop image from embedded resources. Path: {0}";
 
     [SupportedOSPlatform("windows")]
     static ManufacturingWorkshop()
     {
-        ImagePath = "../WorkshopsImages/manufacturing_workshop_1.jpg";
-        _image = Image.FromFile(ImagePath);
+        _image = ResourceLoader.LoadImage(ImageResourcePath)
+                    ?? throw new InvalidOperationException(
+                        string.Format(ImageLoadErrorMessage, ImageResourcePath));
     }
 
     public ManufacturingWorkshop(string name, 

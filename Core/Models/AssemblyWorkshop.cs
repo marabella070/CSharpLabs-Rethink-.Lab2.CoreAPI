@@ -1,6 +1,7 @@
 ﻿using CoreAPI.Core.Models;
 using CoreAPI.Core.Interfaces;
 using Lab2.CoreAPI.Core.Interfaces;
+using Lab2.CoreAPI.Core.Helpers;
 
 using System.Text;
 using System.Drawing;
@@ -12,7 +13,6 @@ public class AssemblyWorkshop : Workshop, IDisplayable, IDrawable
 {
     public const uint MIN_LINES_NUMBER = 1;
     public const uint MAX_LINES_NUMBER = 10_000;
-    public static readonly string ImagePath;
     private static readonly Image _image;
     public uint AssemblyLines { get; set; }
     public bool UsesAutomation { get; set; }
@@ -20,12 +20,15 @@ public class AssemblyWorkshop : Workshop, IDisplayable, IDrawable
     public int Y { get; set; }
     public int ImageWidth { get; set; } = 30;
     public int ImageHeight { get; set; } = 30;
+    private static readonly string ImageResourcePath = "Core.WorkshopsImages.assembly_workshop_image.jpg";
+    private static readonly string ImageLoadErrorMessage = "Failed to load assembly workshop image from embedded resources. Path: {0}";
 
     [SupportedOSPlatform("windows")]
     static AssemblyWorkshop()
     {
-        ImagePath = "../WorkshopsImages/assembly_workshop_image.jpg";
-        _image = Image.FromFile(ImagePath);
+        _image = ResourceLoader.LoadImage(ImageResourcePath)
+                    ?? throw new InvalidOperationException(
+                        string.Format(ImageLoadErrorMessage, ImageResourcePath));
     }
 
     public AssemblyWorkshop(string name, 

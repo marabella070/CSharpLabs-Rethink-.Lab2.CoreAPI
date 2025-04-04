@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "CoreAPI.Core/1.0.2": {
+      "Lab1.CoreAPI.Core/1.0.3": {
         "type": "package",
         "compile": {
           "lib/net9.0/CoreAPI.Core.dll": {}
@@ -58,31 +58,32 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Core/1.0.0": {
+      "Lab2.CoreAPI.Core/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "CoreAPI.Core": "1.0.2",
+          "Lab1.CoreAPI.Core": "1.0.3",
           "System.Drawing.Common": "9.0.3"
         },
         "compile": {
-          "bin/placeholder/Core.dll": {}
+          "bin/placeholder/Lab2.CoreAPI.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Core.dll": {}
+          "bin/placeholder/Lab2.CoreAPI.Core.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "CoreAPI.Core/1.0.2": {
-      "sha512": "8QJnoGwzUBs1GHM2sM4u9eRCFV5ei5BgC1g+EpQNWW+VwOMakJd/zQoRnJaRuGm3hgsFFkoflnI1PmlhsQFn6A==",
+    "Lab1.CoreAPI.Core/1.0.3": {
+      "sha512": "mkBRnj6s0YGLVS4OVR/JNNJxOkuae4ufxufvqRAZtWwF35pX5CIdwDW7lp9bDX6VI9Oblch1XhHSuj6mI563/A==",
       "type": "package",
-      "path": "coreapi.core/1.0.2",
+      "path": "lab1.coreapi.core/1.0.3",
       "files": [
         ".nupkg.metadata",
-        "coreapi.core.1.0.2.nupkg.sha512",
-        "coreapi.core.nuspec",
+        ".signature.p7s",
+        "lab1.coreapi.core.1.0.3.nupkg.sha512",
+        "lab1.coreapi.core.nuspec",
         "lib/net9.0/CoreAPI.Core.dll"
       ]
     },
@@ -160,7 +161,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Core/1.0.0": {
+    "Lab2.CoreAPI.Core/1.0.1": {
       "type": "project",
       "path": "../Core/Core.csproj",
       "msbuildProject": "../Core/Core.csproj"
@@ -168,7 +169,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Core >= 1.0.0"
+      "Lab2.CoreAPI.Core >= 1.0.1"
     ]
   },
   "packageFolders": {
