@@ -58,7 +58,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Lab2.CoreAPI.Core/1.0.1": {
+      "Lab2.CoreAPI.Core/1.0.6": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
@@ -161,7 +161,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Lab2.CoreAPI.Core/1.0.1": {
+    "Lab2.CoreAPI.Core/1.0.6": {
       "type": "project",
       "path": "../Core/Core.csproj",
       "msbuildProject": "../Core/Core.csproj"
@@ -169,7 +169,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Lab2.CoreAPI.Core >= 1.0.1"
+      "Lab2.CoreAPI.Core >= 1.0.6"
     ]
   },
   "packageFolders": {

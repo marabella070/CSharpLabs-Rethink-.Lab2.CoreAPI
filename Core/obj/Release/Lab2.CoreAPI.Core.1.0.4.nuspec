@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Lab2.CoreAPI.Core</id>
+    <version>1.0.4</version>
+    <authors>marabella070</authors>
+    <description>Lab2.CoreAPI.Core</description>
+    <repository type="git" commit="54308423e68c4efe1dcd608e76daecf951520418" />
+    <dependencies>
+      <group targetFramework="net9.0">
+        <dependency id="Lab1.CoreAPI.Core" version="1.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="9.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/Core/bin/Release/net9.0/Core.dll" target="lib/net9.0/Core.dll" />
+  </files>
+</package>

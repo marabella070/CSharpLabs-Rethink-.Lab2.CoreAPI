@@ -68,7 +68,7 @@
       }
     },
     "/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/Core/Core.csproj": {
-      "version": "1.0.1",
+      "version": "1.0.6",
       "restore": {
         "projectUniqueName": "/home/marabella/Programming/Labs/CSharpLabs/Lab2/CoreAPI/Core/Core.csproj",
         "projectName": "Lab2.CoreAPI.Core",
