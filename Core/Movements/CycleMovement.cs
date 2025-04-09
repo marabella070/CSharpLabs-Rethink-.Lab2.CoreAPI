@@ -1,5 +1,5 @@
 using CoreAPI.Core.Helpers;
-using Lab2.CoreAPI.Core.Interfaces;
+using CoreAPI.Core.Interfaces;
 
 using System.ComponentModel.DataAnnotations;
 

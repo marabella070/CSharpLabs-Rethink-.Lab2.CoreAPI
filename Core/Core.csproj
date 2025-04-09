@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.0.6</Version>
+    <Version>1.1.2</Version>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lab1.CoreAPI.Core" Version="1.0.3" />
+    <PackageReference Include="Lab1.CoreAPI.Core" Version="1.0.11" />
     <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
   </ItemGroup>
 

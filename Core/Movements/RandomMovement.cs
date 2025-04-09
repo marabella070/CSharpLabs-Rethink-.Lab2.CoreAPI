@@ -1,6 +1,4 @@
-using Lab2.CoreAPI.Core.Interfaces;
-
-using System.ComponentModel.DataAnnotations;
+using CoreAPI.Core.Interfaces;
 
 namespace Lab2.CoreAPI.Core.Movements;
 

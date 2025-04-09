@@ -7,9 +7,9 @@ public static class CycleMovementRandomizer
     // Use Random.Shared for thread-safe random number generation (available from .NET 6+)
     private static readonly Random random = Random.Shared;
 
-    private static double GenerateRandomRadius(uint formWidth, uint formHeight)
+    private static double GenerateRandomRadius((uint formWidth, uint formHeight) formSize)
     {
-        uint maxRadius = (uint)Math.Min(formWidth, formHeight) / 2;
+        uint maxRadius = (uint)Math.Min(formSize.formWidth, formSize.formHeight) / 2;
         return random.NextDouble() * maxRadius; // Generating a random radius value from 0 to maxRadius
     }
     private static double GenerateRandomAngle()
@@ -25,9 +25,9 @@ public static class CycleMovementRandomizer
         return random.NextDouble() * 200;
     }
 
-    public static CycleMovement Generate(uint formWidth, uint formHeight)
+    public static CycleMovement Generate((uint formWidth, uint formHeight) formSize)
     {
-        double radius = GenerateRandomRadius(formWidth, formHeight);
+        double radius = GenerateRandomRadius(formSize);
         double angle = GenerateRandomAngle();
         MovementDirection direction = GenerateRandomDirection();
         double speed = GenerateRandomSpeed();
@@ -35,11 +35,11 @@ public static class CycleMovementRandomizer
         return new CycleMovement(radius, angle, direction, speed);
     }
 
-    public static IEnumerable<CycleMovement> GenerateMultiple(int count, uint formWidth, uint formHeight)
+    public static IEnumerable<CycleMovement> GenerateMultiple(int count, (uint formWidth, uint formHeight) formSize)
     {
         for (int i = 0; i < count; i++)
         {
-            yield return Generate(formWidth, formHeight);
+            yield return Generate(formSize);
         }
     }
 }

@@ -1,13 +1,11 @@
 using CoreAPI.Core.Models;
 using CoreAPI.Core.Interfaces;
-
-using Lab2.CoreAPI.Core.Interfaces;
-using Lab2.CoreAPI.Core.Helpers;
-using Lab2.CoreAPI.Core.Movements;
+using CoreAPI.Core.Helpers;
 
 using System.Text;
 using System.Drawing;
 using System.Runtime.Versioning;
+using System.Runtime.InteropServices;
 
 namespace Lab2.CoreAPI.Core.Models;
 
@@ -15,23 +13,30 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable, IMoveabl
 {
     public const uint MIN_MACHINES_NUMBER = 1;
     public const uint MAX_MACHINES_NUMBER = 10_000;
-    private static readonly Image _image;
-    private static readonly string ImageResourcePath = "Core.WorkshopsImages.manufacturing_workshop_1.jpg";
-    private static readonly string ImageLoadErrorMessage = "Failed to load assembly workshop image from embedded resources. Path: {0}";
+    private static Image _image;
+    private static string _imageResourcePath;
+    private static string ImageResourcePath => _imageResourcePath;
     public uint MachinesCount { get; set; }
     public bool HasHazardousMaterials { get; set; }
-    public int X { get; set; }
-    public int Y { get; set; }
-    public int ImageWidth { get; set; }
-    public int ImageHeight { get; set; }
-    public IMovementFunction MovementFunction { get; set; }
 
     [SupportedOSPlatform("windows")]
     static ManufacturingWorkshop()
     {
-        _image = ResourceLoader.LoadImage(ImageResourcePath)
-                    ?? throw new InvalidOperationException(
-                        string.Format(ImageLoadErrorMessage, ImageResourcePath));
+        _imageResourcePath = "Core.WorkshopsImages.manufacturing_workshop_1.jpg";
+        string assemblyName = "Core";
+
+        // Uploading the image if the path has changed
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            _image = ResourceLoader.LoadImageFromAssembly(_imageResourcePath, assemblyName)
+                ?? throw new InvalidOperationException(
+                    string.Format("Failed to load image from path: {0}.", _imageResourcePath));
+        }
+        else 
+        {
+            throw new PlatformNotSupportedException(
+                $"Image loading is supported only on Windows. Tried path: {_imageResourcePath}");
+        }
     }
 
     public ManufacturingWorkshop(string name, 
@@ -44,11 +49,11 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable, IMoveabl
                                  List<ScheduleElement> schedule,
                                  uint machinesCount,
                                  bool hasHazardousMaterials,
-                                 int x = 0,
-                                 int y = 0,
+                                 int? x = null,
+                                 int? y = null,
                                  IMovementFunction? movementFunction = null,
-                                 int imageWidth = 30,
-                                 int imageHeight = 30)
+                                 int? imageWidth = null,
+                                 int? imageHeight = null)
         : base(name, 
                manager, 
                workerCount, 
@@ -56,15 +61,15 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable, IMoveabl
                id,
                brigades,
                shifts,
-               schedule)
+               schedule,
+               x,
+               y,
+               movementFunction,
+               imageWidth,
+               imageHeight)
     {
         MachinesCount = machinesCount;
         HasHazardousMaterials = hasHazardousMaterials;
-        ImageWidth = imageWidth;
-        ImageHeight = imageHeight;
-        X = x;
-        Y = y;
-        MovementFunction = movementFunction ?? new EmptyMovement();
     }
 
     [SupportedOSPlatform("windows")]
@@ -74,29 +79,11 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable, IMoveabl
         g.DrawImage(_image, X, Y, ImageWidth, ImageHeight);
     }
 
-    public void Move(double timeElapsed, int boundaryX, int boundaryY)
-    {
-        // Calculating the shift along the axes using a function of time
-        var (dx, dy) = MovementFunction.Shift(timeElapsed);
-        X += dx;
-        Y += dy;
-
-        // Handling collisions with window borders
-        if (X < 0 || X > boundaryX) dx = -dx;
-        if (Y < 0 || Y > boundaryY) dy = -dy;
-
-        X += dx;
-        Y += dy;
-    }
-
     public string GetAssemblyWorkshopInfo()
     {
         var sb = new StringBuilder();
         sb.AppendLine($"Machines count: {MachinesCount}");
         sb.AppendLine($"Hazardous materials: {(HasHazardousMaterials ? "Yes" : "No")}\n");
-        sb.AppendLine($"Position: X = {X}, Y = {Y}");
-        sb.AppendLine($"Image Size: {ImageWidth} x {ImageHeight}");
-        sb.AppendLine($"Movement Function: {MovementFunction.GetType().Name}");
 
         return sb.ToString();
     }
