@@ -79,7 +79,7 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable, IMoveabl
         g.DrawImage(_image, X, Y, ImageWidth, ImageHeight);
     }
 
-    public string GetAssemblyWorkshopInfo()
+    public string GetManufacturingWorkshopInfo()
     {
         var sb = new StringBuilder();
         sb.AppendLine($"Machines count: {MachinesCount}");
@@ -87,27 +87,27 @@ public class ManufacturingWorkshop : Workshop, IDisplayable, IDrawable, IMoveabl
 
         return sb.ToString();
     }
-    public string GetShortAssemblyWorkshopInfo()
+    public string GetShortManufacturingWorkshopInfo()
     {
-        return GetAssemblyWorkshopInfo();
+        return GetManufacturingWorkshopInfo();
     }
     public override void ShowInfo(Action<string> output)
     {
         base.ShowInfo(output);
-        output("\n" + GetAssemblyWorkshopInfo());
+        output("\n" + GetManufacturingWorkshopInfo());
     }
 
     public override void ShowShortInfo(Action<string> output)
     {
         base.ShowShortInfo(output);
-        output("\n" + GetShortAssemblyWorkshopInfo());
+        output("\n" + GetShortManufacturingWorkshopInfo());
     }
 
     public override string ToString()
     {
         string productionPart = GetProductionInfo();
         string workshopPart = GetWorkshopInfo();
-        string assemblyPart = GetAssemblyWorkshopInfo();
+        string assemblyPart = GetManufacturingWorkshopInfo();
 
         return productionPart + "\n" + workshopPart + "\n" + assemblyPart;
     }
